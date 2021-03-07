@@ -1,0 +1,266 @@
+/* Lars Kamman - Stage opdracht */
+
+@import "./reset.css";
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --v-black: black;
+  --v-white: white;
+  --v-colorBunker: #0D0F15;
+  --v-colorGrayA: rgba(128, 128, 128, 0.07);;
+  --v-gray: #7F7F7F;
+
+  --v-font: 'Roboto', sans-serif;;
+
+  --v-outerWidth: 16px;
+  --v-countLi: 100vw;
+}
+
+body {
+  background-color: var(--v-colorBunker);
+}
+
+h1 {
+  font-family: var(--v-font);
+  font-style: normal;
+  font-weight: 200;
+  /* to ensure that the text always looks the same in order */
+  font-size: calc(110 / 1440 * var(--v-outerWidth));
+  line-height: 1;
+  text-decoration-line: underline;
+}
+
+h2 {
+  font-family: var(--v-font);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 150px;
+  line-height: 176px;
+  color: var(--v-colorGrayA);
+}
+
+h3 {
+  font-family: var(--v-font);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 35px;
+}
+
+p {
+  font-family: var(--v-font);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+span {
+  display: block;
+  margin: 0.25em 0;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Menu */
+header {
+  position: fixed;
+  width: 100vw;
+  height: 80px;
+  background-color: var(--v-colorBunker);
+  /* Like all good developers do d[ o_0 ]b*/
+  z-index: 9999;
+}
+
+nav {
+  height: 100%;
+  padding: 0 80px;
+  color: var(--v-white);
+  font-family: var(--v-font);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+nav ul {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+li:first-of-type{
+  margin-right: auto;
+}
+
+li:last-of-type a{
+  display: flex;
+  align-items: center;
+}
+
+img.logoHeader{
+  width: 174px;
+}
+
+img.menuIcon{
+  width: 45px;
+  margin: 0 13px;
+}
+
+/* Intro */
+section.intro {
+  background-color: var(--v-white);
+}
+
+div.introText {
+  position: relative;
+  width: 75%;
+  padding: 160px 0 0 16%;
+  z-index: 1;
+}
+
+img.showImg {
+  display: none;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  transition-duration: 400ms;
+  transition-timing-function: ease-out;
+  pointer-events:none;
+  z-index: -1;
+}
+
+h1.showOnHover:hover + img.showImg {
+  display: block;
+}
+
+/* Why us?  */
+section.whyUs {
+  padding: 250px 0;
+  background-color: var(--v-white);
+}
+
+div.whyUsContainer {
+  margin: 0 80px;
+  text-align: right;
+}
+
+p.pRandomtext1 {
+  display: inline-block;
+  width: 362px;
+  margin-bottom: 80px;
+}
+
+div.whyUsFlex {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+div.whyUsFlex article.whyUsFlexed {
+  margin-right: auto;
+}
+
+article.whyUsFlexed div {
+  display: inline-block;
+  width: 269px;
+}
+
+p.pRandomtext2 {
+  display: inline-block;
+  width: 208px;
+}
+
+/* Unique  */
+section.unique {
+  position: relative;
+}
+
+section.unique div {
+  width: 100%;
+}
+
+section.unique div.group:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 190px;
+  background: #fff;
+  z-index: -1; 
+}
+
+section.unique h2 {
+  margin: 110px 0 35px 80px;
+}
+
+ul.slider {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr)
+}
+
+ul.slider li {
+  width: calc(100vw / 3);
+  margin: 30px 80px;
+}
+
+ul.slider li article a h3 {
+  color: var(--v-white);
+  text-decoration-line: underline;
+}
+
+ul.slider li article p {
+  color: var(--v-gray);
+}
+
+img.drag {
+  display: none;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 50px;
+  transition-duration: 400ms;
+  transition-timing-function: ease-out;
+  z-index: 500;
+  pointer-events:none
+}
+
+ul.slider:hover + img.drag {
+  display: block;
+}
+
+img.blue {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+@media only screen and (max-width: 1300px) {
+  div.whyUsFlexed {
+    width: 100%;
+  }
+  div.whyUsFlex article.whyUsFlexed {
+    margin-right: unset;
+    width: 100%;
+}
+}
